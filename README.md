@@ -60,6 +60,84 @@ and Websocket.
 
 ## Hypertext Transfer Protocol (HTTP)
 
+Hypertext Transfer Protocol, or HTTP, is built atop TCP and allows users and
+applications to communicate via hypertext (e.g. HTML). Most internet users have
+likely noticed that HTTP is the most popular means of accessing internet
+resources by far. It adheres to a client-server model, where the client is
+typically a web browser and the server is...well, a server! Every web
+application has one, after all.
+
+In HTTP, the client opens a connection to make a request, then waits for a
+response from the server. The connection ends when the response is received
+and the server does not keep any data while waiting for a new request. This
+means that HTTP is stateless- even though it's built on top of TCP, a stateful
+protocol! Because HTTP is stateless, it is faster than traditional TCP.
+
+HTTP requests are typically sent over port 80. If you see a URL without a
+specified port in your browser, it might be running on port 80. If you see
+a lock to the left of the domain name, however, you're running on port 443
+for HTTPS.
+
+### HTTPS
+
+Hypertext Transfer Protocol Secure (HTTPS) uses encryption to ensure secure
+communications between the client and server. The protocol used for encryption
+is called Transport Layer Security (TLS) and secures communications with a
+public key and a private key.
+
+- A **public key** is available to anyone who wanted to interact with a server
+  over HTTPS. The public key is used to encrypt a website's data.
+- A **private key** is only available to the owner of a website. It lives on the
+  server and decrypts information that has been encrypted by the public key.
+
+All communication over HTTP uses easily-readable plain text, which does not
+leave your data very secure on its own. Encryption ensures that others in your
+network cannot see the plain text that you're sending and receiving when using
+the internet.
+
+### Downsides to HTTP
+
+While being stateless allows HTTP to convey messages more quickly than TCP, it
+requires the client to either request all of the data it wants at once or make
+a number of new requests. If a client needs updates from the server in real
+time, HTTP is no longer quite as appealing a solution.
+
+The work-around to this- HTTP long-polling- allowed servers to maintain an HTTP
+connection for a long period, which gave the client more time to receive data
+that aligned with a certain request. This unfortunately requires quite a bit of
+work for the server, and there's no guarantee that new data will come during a
+polling session.
+
+Full-stack applications often desire fast, real-time updates between the
+client and server. Updates to HTTP have improved its ability to serve as a
+client-server intermediary in this context, but it's still far from perfect. To
+improve communication in a full-stack context, a team of engineers designed
+a new protocol: **WebSocket**.
+
+***
+
+## WebSocket
+
+Like HTTP, WebSocket is built on top of an existing TCP connection. Unlike HTTP,
+the connection is bidirectional and stateful: the client and server remain
+connected and can communicate with each other freely without establishing new
+connections.
+
+WebSocket starts as an HTTP request: the client sends a request to the server,
+though this request is to open a WebSocket connection. If this request is
+successful, the TCP connection between client and server is reinterpreted as a
+WebSocket connection. Data can continue traveling back and forth until one side
+terminates the connection.
+
+***
+
+## Conclusion
+
+TCP, HTTP, and WebSocket are connection protocols that you need to know to be an
+effective web application developer. We've done a good amount of HTTP work so
+far (especially in our **REST APIs** module)- next, we'll dig deeper into
+WebSocket with [Socket.IO](https://socket.io/).
+
 ***
 
 ## Resources
