@@ -26,7 +26,7 @@
 - **Hypertext Transfer Protocol (HTTP)**: a stateless protocol where
   applications communicate for the length of time that it takes for data to be
   transferred.
-- **Websocket**: a protocol that allows clients and servers to communicate with
+- **WebSocket**: a protocol that allows clients and servers to communicate with
   one another in both directions. The bidirectional nature of websocket
   communication allows a connected state to be generated and the connection
   maintained until it is terminated by one side. This allows for speedy and
@@ -135,8 +135,8 @@ terminates the connection.
 
 TCP, HTTP, and WebSocket are connection protocols that you need to know to be an
 effective web application developer. We've done a good amount of HTTP work so
-far (especially in our **REST APIs** module)- next, we'll dig deeper into
-WebSocket with [Socket.IO](https://socket.io/).
+far (especially in our **REST APIs** module)- in the next bonus lesson, we'll
+dig deeper into WebSocket with [Socket.IO](https://socket.io/).
 
 ***
 
