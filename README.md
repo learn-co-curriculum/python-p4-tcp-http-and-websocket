@@ -135,8 +135,10 @@ terminates the connection.
 
 TCP, HTTP, and WebSocket are connection protocols that you need to know to be an
 effective web application developer. We've done a good amount of HTTP work so
-far (especially in our **REST APIs** module)- in the next bonus lesson, we'll
-dig deeper into WebSocket with [Socket.IO](https://socket.io/).
+far (especially in our **REST APIs** module)- for more experience with
+WebSocket, take some time to explore [Socket.IO](https://socket.io/), a library
+that supports simple WebSocket connections from both the client and server
+sides.
 
 ***
 
