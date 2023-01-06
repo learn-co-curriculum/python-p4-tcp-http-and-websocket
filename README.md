@@ -1,9 +1,8 @@
-# TCP, HTTP, and Websocket
+# Mini Lesson: TCP, HTTP, and Websocket
 
 ## Learning Goals
 
-- Create websocket connections between clients and servers to improve our
-  applications' performance.
+- Compare TCP, HTTP, and Websocket in the context of full-stack web development.
 
 ***
 
