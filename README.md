@@ -1,4 +1,4 @@
-# Mini Lesson: TCP, HTTP, and Websocket
+# Mini Lesson: TCP HTTP and Websocket
 
 ## Learning Goals
 
