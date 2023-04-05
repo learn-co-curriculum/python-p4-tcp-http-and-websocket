@@ -128,6 +128,14 @@ successful, the TCP connection between client and server is reinterpreted as a
 WebSocket connection. Data can continue traveling back and forth until one side
 terminates the connection.
 
+Because WebSocket does not need to reestablish connections and send new
+request and response headers back and forth, it removes a great deal of the
+overhead of an HTTP connection. This results in a significant improvement in
+the speed of the connection. That being said, don't forget that the
+establishment of a WebSocket connection _is a step that affects performance_.
+If you're not sending messages back and forth fairly rapidly, an HTTP
+connection is still preferred to avoid that initial overhead.
+
 ***
 
 ## Conclusion
