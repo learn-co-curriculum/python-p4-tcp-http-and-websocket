@@ -128,13 +128,30 @@ successful, the TCP connection between client and server is reinterpreted as a
 WebSocket connection. Data can continue traveling back and forth until one side
 terminates the connection.
 
-Because WebSocket does not need to reestablish connections and send new
-request and response headers back and forth, it removes a great deal of the
-overhead of an HTTP connection. This results in a significant improvement in
+Traditional TCP connections require developers to write their own transfer
+protocols. While this allows for customization on the developer's part- which
+is necessary in some niche circumstances- by and large, it makes working with
+pure TCP slower and more difficult.
+
+WebSocket solves this problem by establishing TCP connections with its own
+standardized, high-level communication protocol. This allows developers to set
+up WebSockets without having to configure a TCP protocol themselves.
+
+This standardization also solves another problem: If a developer has set up an
+application to use a custom TCP protocol, any servers or clients that want to
+communicate with that application will need to use the same custom protocol.
+
+Additionally, because WebSocket does not need to reestablish connections and
+send new request and response headers back and forth, it removes a great deal of
+the overhead of an HTTP connection. This results in a significant improvement in
 the speed of the connection. That being said, don't forget that the
 establishment of a WebSocket connection _is a step that affects performance_.
 If you're not sending messages back and forth fairly rapidly, an HTTP
 connection is still preferred to avoid that initial overhead.
+
+WebSocket's standardized protocol is supported by all modern browsers and
+servers, which makes it easy to connect your app to other servers and clients as
+needed, without having to go through the configuration process all over again.
 
 ***
 
