@@ -71,9 +71,15 @@ This is important because the packets may not arrive in the same order they were
 sent. They can take different routes over the internet, and sometimes they
 arrive out of order.
 
-Now, your packets are ready to be sent. TCP hands them over to the internet,
-which is like the postal service. The internet ensures that the packets are
-delivered to your friend's computer.
+Now, your packets are ready to be sent. TCP takes place in the **transport
+layer** of the networking stack. The transport layer is like the post office,
+handling the transportation of your letter. It takes care of how the letter will
+be delivered from your location to your friend's location. It ensures that the
+letter is sent reliably and efficiently, making sure it doesn't get lost or
+damaged along the way. The transport layer uses different methods, just like
+different shipping companies might use trucks, airplanes, or ships to transport
+packages. TCP hands them over to the internet. The internet ensures that the
+packets are delivered to your friend's computer.
 
 When your friend's computer receives the packets, TCP comes into action again.
 It checks if any packets are missing or got damaged during the journey. If that
@@ -86,13 +92,7 @@ the numbers on the packets and arranges them in the right sequence. Once all the
 packets are in the right order, your friend's computer can read your complete
 message.
 
-TCP takes place in the **transport layer** of the networking stack. The
-transport layer is like the post office, handling the transportation of
-your letter. It takes care of how the letter will be delivered from your
-location to your friend's location. It ensures that the letter is sent reliably
-and efficiently, making sure it doesn't get lost or damaged along the way. The
-transport layer uses different methods, just like different shipping companies
-might use trucks, airplanes, or ships to transport packages.
+
 
 TCP is considered a stateful protocol because it establishes a connection, keeps
 track of the ongoing communication, ensures packets arrive reliably and in
