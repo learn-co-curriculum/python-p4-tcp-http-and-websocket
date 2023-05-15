@@ -46,36 +46,101 @@ Internet Protocol (IP) and Transmission Control Protocol (TCP). IP dictates how
 messages are sent between networks on the internet. It is upheld by all
 internet-based applications.
 
+### TCP
+
 Where IP is focused on messages, TCP is focused on connections. It is a stateful
 protocol, meaning that it remembers previous transactions for the duration of
-the connection. This statefulness makes TCP _reliable_: it knows what works and
-what doesn't based on its history. It also makes TCP _kind of slow_.
+the connection.
 
-While TCP is imperfect, it makes for a great base for faster and more specific
-protocols. In this lesson, we're going to dive deeper into two of those: HTTP
-and Websocket.
+Imagine you want to send a message to your friend who lives far away. You decide
+to write a letter and send it through the mail. Now, to ensure that your friend
+receives the message correctly, you want to make sure it doesn't get lost or
+mixed up along the way. That's where TCP comes in.
+
+TCP is like a smart postal service for sending data over the internet. It takes
+your message and breaks it down into smaller pieces called packets. Each packet
+contains a part of your message and some additional information.
+
+Next, TCP adds some special information to each packet. It includes the address
+of the sender (that's you) and the address of the receiver (your friend). This
+way, the packets know where to go.
+
+TCP also numbers each packet in order. It's like labeling the packets with
+numbers, starting from one, so your friend can put them back together correctly.
+This is important because the packets may not arrive in the same order they were
+sent. They can take different routes over the internet, and sometimes they
+arrive out of order.
+
+Now, your packets are ready to be sent. TCP hands them over to the internet,
+which is like the postal service. The internet ensures that the packets are
+delivered to your friend's computer.
+
+When your friend's computer receives the packets, TCP comes into action again.
+It checks if any packets are missing or got damaged during the journey. If that
+happens, TCP asks the sender to send those missing or damaged packets again.
+This ensures that your friend gets all the packets and can read your message
+correctly.
+
+Finally, TCP puts the packets back together in the correct order. It looks at
+the numbers on the packets and arranges them in the right sequence. Once all the
+packets are in the right order, your friend's computer can read your complete
+message.
+
+TCP takes place in the **transport layer** of the networking stack. The
+transport layer is like the post office, handling the transportation of
+your letter. It takes care of how the letter will be delivered from your
+location to your friend's location. It ensures that the letter is sent reliably
+and efficiently, making sure it doesn't get lost or damaged along the way. The
+transport layer uses different methods, just like different shipping companies
+might use trucks, airplanes, or ships to transport packages.
+
+TCP is considered a stateful protocol because it establishes a connection, keeps
+track of the ongoing communication, ensures packets arrive reliably and in
+order, manages flow control, and maintains the connection until the conversation
+is complete. This statefulness allows for efficient and error-free data
+transmission over the internet.
+
+So, TCP is like a smart postal service that breaks your message into smaller
+pieces, labels them with numbers, sends them over the internet, and ensures that
+they arrive in the right order and without any errors. It makes sure your
+messages reach their destination _reliably_ and _correctly_.
 
 ***
 
 ## Hypertext Transfer Protocol (HTTP)
 
 Hypertext Transfer Protocol, or HTTP, is built atop TCP and allows users and
-applications to communicate via hypertext (e.g. HTML). Most internet users have
-likely noticed that HTTP is the most popular means of accessing internet
-resources by far. It adheres to a client-server model, where the client is
-typically a web browser and the server is...well, a server! Every web
-application has one, after all.
+applications to communicate via hypertext (e.g., HTML). It's the foundation of
+the World Wide Web and is widely used for accessing internet resources.
 
-In HTTP, the client opens a connection to make a request, then waits for a
-response from the server. The connection ends when the response is received
-and the server does not keep any data while waiting for a new request. This
-means that HTTP is stateless- even though it's built on top of TCP, a stateful
-protocol! Because HTTP is stateless, it is faster than traditional TCP.
+HTTP follows a client-server model, where the client is usually a web browser,
+and the server is, well...a server! Every web application has its own server to
+handle the requests and deliver the requested resources.
 
-HTTP requests are typically sent over port 80. If you see a URL without a
-specified port in your browser, it might be running on port 80. If you see
-a lock to the left of the domain name, however, you're running on port 443
-for HTTPS.
+When using HTTP, the client initiates a connection with the server to make a
+request. It sends a message to the server asking for a specific resource, such
+as a webpage or a file. The client then waits for the server's response. Once
+the response is received, the connection is closed. This means that HTTP is
+stateless, even though it is built on top of TCP, which is a stateful protocol.
+
+Being stateless means that the server doesn't remember any information about the
+client's previous requests. It treats each request as an independent, standalone
+request. This design simplifies server implementation, improves scalability, and
+allows for better load balancing.
+
+HTTP uses the **application layer** of the networking stack. Returning to our
+letter-carrier analogy, application layer is like the content of the letter.
+It's the actual reason why you are sending the letter in the first place. It
+could be a birthday gift, a letter, or a book. The application layer determines
+what type of information or resource you want to send to your friend. The
+application layer is _on top of the transport layer_ in the networking stack-
+this means that HTTP requests are sent after work in the transport layer is
+complete.
+
+In HTTP, requests are typically sent over port 80. When you enter a URL in your
+browser without specifying a port, it defaults to port 80. However, if you see a
+lock icon to the left of the domain name in your browser, it indicates that
+you're using port 443 for HTTPS.
 
 ### HTTPS
 
@@ -94,28 +159,51 @@ leave your data very secure on its own. Encryption ensures that others in your
 network cannot see the plain text that you're sending and receiving when using
 the internet.
 
-### Downsides to HTTP
+### Summary: TCP vs. HTTP
 
-While being stateless allows HTTP to convey messages more quickly than TCP, it
-requires the client to either request all of the data it wants at once or make
-a number of new requests. If a client needs updates from the server in real
-time, HTTP is no longer quite as appealing a solution.
+1. Purpose
 
-The work-around to this- HTTP long-polling- allowed servers to maintain an HTTP
-connection for a long period, which gave the client more time to receive data
-that aligned with a certain request. This unfortunately requires quite a bit of
-work for the server, and there's no guarantee that new data will come during a
-polling session.
+- TCP is a transport layer protocol
+responsible for reliable data transmission, ensuring packets are delivered
+without errors and in the correct order.
+- HTTP is an application layer protocol used for communication between web
+clients (such as web browsers) and servers. It defines how clients request
+resources, and servers respond with those resources.
+
+2. Layer:
+
+- TCP operates at the transport layer of the networking stack, providing a
+  reliable and ordered delivery of data.
+- HTTP operates at the application layer, which is higher in the
+  networking stack compared to TCP.
+
+3. Connection:
+
+- TCP is stateful. It establishes a connection between a sender and a
+  receiver before data transmission. It ensures a reliable and ordered exchange
+  of data by using acknowledgments and retransmission of lost packets.
+- HTTP is stateless and doesn't maintain a persistent connection between
+  the client and server. It uses a request-response model, where the client
+  sends a request to the server, and the server responds with the requested
+  resource. Each request-response cycle is independent.
+
+4. Reliability:
+
+- TCP provides reliable data transmission by using acknowledgments,
+  error-checking, and retransmission of lost packets. It guarantees that data
+  arrives at the destination without errors and in the correct order.
+- Being stateless, HTTP does not provide any of the same reliability measures
+  as TCP.
+
+***
+
+## WebSocket
 
 Full-stack applications often desire fast, real-time updates between the
 client and server. Updates to HTTP have improved its ability to serve as a
 client-server intermediary in this context, but it's still far from perfect. To
 improve communication in a full-stack context, a team of engineers designed
 a new protocol: **WebSocket**.
-
-***
-
-## WebSocket
 
 Like HTTP, WebSocket is built on top of an existing TCP connection. Unlike HTTP,
 the connection is bidirectional and stateful: the client and server remain
