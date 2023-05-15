@@ -107,7 +107,8 @@ messages reach their destination _reliably_ and _correctly_.
 
 ## Hypertext Transfer Protocol (HTTP)
 
-Hypertext Transfer Protocol, or HTTP, is built atop TCP and allows users and
+Hypertext Transfer Protocol, or HTTP, is built atop TCP, sending requests and
+receiving responses atop an underlying TCP connection. HTTP allows users and
 applications to communicate via hypertext (e.g., HTML). It's the foundation of
 the World Wide Web and is widely used for accessing internet resources.
 
