@@ -92,8 +92,6 @@ the numbers on the packets and arranges them in the right sequence. Once all the
 packets are in the right order, your friend's computer can read your complete
 message.
 
-
-
 TCP is considered a stateful protocol because it establishes a connection, keeps
 track of the ongoing communication, ensures packets arrive reliably and in
 order, manages flow control, and maintains the connection until the conversation
