@@ -191,7 +191,7 @@ the internet.
   error-checking, and retransmission of lost packets. It guarantees that data
   arrives at the destination without errors and in the correct order.
 - Being stateless, HTTP does not provide any of the same reliability measures
-  as TCP.
+  as TCP. HTTP depends on its underlying TCP connection for reliability.
 
 ***
 
