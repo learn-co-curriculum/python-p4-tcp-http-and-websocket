@@ -161,17 +161,16 @@ the internet.
 
 1. Purpose
 
-- TCP is a transport layer protocol
-responsible for reliable data transmission, ensuring packets are delivered
-without errors and in the correct order.
-- HTTP is an application layer protocol used for communication between web
-clients (such as web browsers) and servers. It defines how clients request
-resources, and servers respond with those resources.
+- TCP is responsible for reliable data transmission, ensuring packets are
+  delivered without errors and in the correct order.
+- HTTP is used for communication between web clients (such as web browsers) and
+  servers. It defines how clients request resources, and servers respond with
+  those resources.
 
 2. Layer:
 
 - TCP operates at the transport layer of the networking stack, providing a
-  reliable and ordered delivery of data.
+  reliable and ordered delivery of data over the internet.
 - HTTP operates at the application layer, which is higher in the
   networking stack compared to TCP.
 
