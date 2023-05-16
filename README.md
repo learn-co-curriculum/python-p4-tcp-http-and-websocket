@@ -43,10 +43,15 @@ communicate across the globe through the internet.
 Communication between so many internet-connected devices across such a wide area
 requires a certain set of standards. All internet communication relies on the
 Internet Protocol (IP) and Transmission Control Protocol (TCP). IP dictates how
-messages are sent between networks on the internet. It is upheld by all
+messages are sent between networks on the internet. It is upheld by nearly all
 internet-based applications.
 
-### TCP
+In this lesson, we will focus on TCP, HTTP, and WebSocket, three communication
+protocols that vary a bit in usage between web applications.
+
+***
+
+## TCP
 
 Where IP is focused on messages, TCP is focused on connections. It is a stateful
 protocol, meaning that it remembers previous transactions for the duration of
